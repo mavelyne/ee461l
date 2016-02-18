@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ee461l.sp16.group1</groupId>
-    <artifactId>tree-chat</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>trii-chat</artifactId>
+    <version>1.0</version>
 
     <build>
         <plugins>
@@ -19,8 +19,43 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <!-- This tells Maven to include all dependencies -->
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>0.4.4</version>
+                <configuration>
+                    <jdkVersion>1.8</jdkVersion>
+                    <appName>trii-chat</appName>
+                    <processTypes>
+                        <web>java -jar ./target/trii-chat-1.0-jar-with-dependencies.jar</web>
+                    </processTypes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
     <dependencies>
         <dependency>
             <groupId>com.sparkjava</groupId>
