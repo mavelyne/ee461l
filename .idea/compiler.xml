@@ -24,9 +24,17 @@
         <processorPath useClasspath="true" />
         <module name="TreeChat" />
       </profile>
+      <profile default="false" name="Annotation profile for trii-chat" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="trii-chat" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="TreeChat" target="1.8" />
+      <module name="trii-chat" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
