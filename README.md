@@ -16,3 +16,11 @@ What you have to do in order to be able to test locally and deploy to Heroku:
 - Add run configurations in IntelliJ
     - for testing locally, create "Application" configuration with main class Main
     - for deploying to heroku, create "Maven" configuration with command line heroku:deploy
+    
+To see addons:
+heroku addons --app trii-chat
+heroku config --app trii-chat //this lets you see DATABASE_URL
+
+Heroku Postgres Driver
+Import new Maven dependency.
+    - On Intellij: Open Library Settings -> Libraries -> + -> From maven -> type org.postgresql -> get 9.4.1208 version
